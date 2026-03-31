@@ -23,6 +23,27 @@ body{
   box-sizing:border-box;
 }
 
+
+/* Drapeau et logo */
+#flag {
+  height: auto;
+  max-height: 40px;   /* réduit la hauteur sur mobile */
+  max-width: 45%;     /* prend au maximum 45% de l'écran chacun */
+  object-fit: contain;
+}
+
+/* Optionnel : effet hover sur le drapeau */
+#flag:hover {
+  transform: scale(1.1);
+}
+
+/* MEDIA QUERY pour très petits écrans */
+@media (max-width: 400px) {
+  #flag {
+    max-height: 30px;  /* encore plus petit si l'écran est très petit */
+    max-width: 40%;
+  }
+}
 #logo {
   max-height:40px;
   width:auto;
