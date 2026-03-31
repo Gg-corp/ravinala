@@ -32,9 +32,9 @@ body{
 .container{
   display:flex;
   justify-content:center;
-  align-items:center;
-  height:calc(100vh - 60px);
-  padding:15px;
+  align-items:flex-start; /* 🔥 au lieu de center */
+  min-height:calc(100vh - 60px);
+  padding:20px 15px 0; /* un peu d'espace en haut */
   box-sizing:border-box;
 }
 
@@ -110,7 +110,7 @@ img{
 
     <img src="2-1.png">
 
-    <p class="qr-text">📱 Scannez le QR code pour l’étape suivante</p>
+    <p class="qr-text">📱 Scannez le QR code présent sur le lieu pour l’étape suivante</p>
 
   </div>
 
