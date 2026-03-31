@@ -210,7 +210,7 @@
 <p>❤️ Vies restantes :</p>
 <div id="lives-box"></div>
 
-    <img id="plane-img" src="https://ravinala-airports.makeitpulse.app/wp-content/uploads/2026/03/9.jpg">
+    <img id="plane-img" src="https://www.ravinala-airports.aero/wp-content/uploads/2026/03/1.jpg">
 
     <button id="restart">Recommencer</button>
 
@@ -230,20 +230,23 @@
 (function() {
   const words = [
     {word:"avion", hint:"Le transporteur principal des passagers."},
-    {word:"terminal", hint:"Bâtiment principal de l'aéroport."},
+    {word:"lapin", hint:"Animal de Pâques 🐰"},
+    {word:"aeroport", hint:"Lieu de départ et d’arrivée des avions."},
     {word:"piste", hint:"Où les avions décollent et atterrissent."},
-    {word:"bagage", hint:"Ce que les passagers enregistrent."},
-    {word:"paques", hint:"Lapins et chocolats pour les visiteurs."}
+    {word:"paques", hint:"Fête avec des œufs en chocolat 🥚"},
+    {word:"reservation", hint:"Action de garder une place à l’avance."},
+    {word:"passeport", hint:"Document pour voyager à l’étranger."},
+    {word:"pilote", hint:"Personne qui conduit l’avion."}
   ];
 
   const planeStages = [
-    "https://ravinala-airports.makeitpulse.app/wp-content/uploads/2026/03/9.jpg",
-    "https://ravinala-airports.makeitpulse.app/wp-content/uploads/2026/03/10.jpg",
-    "https://ravinala-airports.makeitpulse.app/wp-content/uploads/2026/03/11.jpg",
-    "https://ravinala-airports.makeitpulse.app/wp-content/uploads/2026/03/12.jpg",
-    "https://ravinala-airports.makeitpulse.app/wp-content/uploads/2026/03/Paul-1.jpg",
-    "https://ravinala-airports.makeitpulse.app/wp-content/uploads/2026/03/13.jpg",
-    "https://ravinala-airports.makeitpulse.app/wp-content/uploads/2026/03/14.jpg",
+    "https://www.ravinala-airports.aero/wp-content/uploads/2026/03/1.jpg",
+    "https://www.ravinala-airports.aero/wp-content/uploads/2026/03/2.jpg",
+    "https://www.ravinala-airports.aero/wp-content/uploads/2026/03/3.jpg",
+    "https://www.ravinala-airports.aero/wp-content/uploads/2026/03/4.jpg",
+    "https://www.ravinala-airports.aero/wp-content/uploads/2026/03/5.jpg",
+    "https://www.ravinala-airports.aero/wp-content/uploads/2026/03/6.jpg",
+    "https://www.ravinala-airports.aero/wp-content/uploads/2026/03/7.jpg",
     
   ];
 
@@ -362,10 +365,11 @@ setTimeout(() => {
   });
 
   // vies avec coeurs
+  
   livesBox.innerHTML = "";
   for(let i=0; i<lives; i++){
     const heart = document.createElement("span");
-    heart.textContent = "❤️";
+    heart.textContent = "🥚";
     heart.className = "life";
     livesBox.appendChild(heart);
   }
