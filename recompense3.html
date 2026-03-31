@@ -17,26 +17,28 @@ body{
 #header {
   width: 100%;
   display: flex;
-  justify-content: space-between; /* logo gauche et droite */
-  align-items: center;
-  padding: 10px 15px;
+  justify-content: space-between; /* ⚡ drapeau à gauche, logo à droite */
+  align-items: center;           /* aligne verticalement */
+  padding: 10px 20px;
   box-sizing: border-box;
 }
+
 #flag {
-  height:28px;
-  width:auto;
-  cursor:pointer;
-  border-radius:4px;
+  height: 28px;
+  width: auto;
+  cursor: pointer;
+  border-radius: 4px;
   transition: transform 0.2s;
 }
 
 #flag:hover {
   transform: scale(1.1);
 }
+
 #logo {
-  max-height:40px;
-  width:auto;
-  object-fit:contain;
+  height: 40px;   /* fixe la hauteur */
+  width: auto;
+  object-fit: contain;
 }
 /* CONTENU */
 .container{
@@ -105,6 +107,7 @@ img{
 
 <body>
 
+<!-- HEADER -->
 <!-- HEADER -->
 <!-- HEADER -->
 <div id="header">
