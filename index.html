@@ -15,14 +15,24 @@
 
     /* HEADER AVEC LOGO */
     #header {
-      width:100%;
-      display:flex;
-      justify-content:flex-end;
-      align-items:center;
-      padding:10px 15px;
-      box-sizing:border-box;
-    }
+  width:100%;
+  display:flex;
+  justify-content:space-between; /* espace entre drapeau et logo */
+  align-items:center;
+  padding:10px 15px;
+  box-sizing:border-box;
+}
 
+#flag {
+  height:28px;
+  width:auto;
+  cursor:pointer;
+  transition: transform 0.2s;
+}
+
+#flag:hover {
+  transform: scale(1.1);
+}
     #logo {
       height:40px;
       opacity:0.9;
@@ -189,6 +199,9 @@
 
 <!-- HEADER AVEC LOGO -->
 <div id="header">
+  <a href="https://ravinalajeu.paulgray2117.workers.dev/ravinalaeng" id="lang-switch">
+   <img src="https://flagcdn.com/gb.svg" alt="English" id="flag">
+  </a>
   <img id="logo" src="https://www.ravinala-airports.aero/wp-content/uploads/2026/03/Logo-transparent.png">
 </div>
 
@@ -268,9 +281,9 @@ const livesBox = document.getElementById("lives-box");
   const keyboardDiv = document.getElementById("keyboard");
 
   const azertyKeys = [
-      ["a","z","e","r","t","y","u","i","o","p"],
-  ["q","s","d","f","g","h","j","k","l","m"],
-  ["w","x","c","v","b","n"]
+    ["a","z","e","r","t","y","u","i","o","p"],
+    ["q","s","d","f","g","h","j","k","l","m"],
+    ["w","x","c","v","b","n"]
   ];
 
   let keyboardButtons = [];
