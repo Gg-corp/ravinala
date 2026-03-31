@@ -17,17 +17,20 @@ body{
 #header {
   width: 100%;
   display: flex;
-  justify-content: space-between; /* ⚡ drapeau à gauche, logo à droite */
-  align-items: center;           /* aligne verticalement */
-  padding: 10px 20px;
+  justify-content: space-between; /* drapeau à gauche, logo à droite */
+  align-items: center;
+  padding: 10px 15px;
   box-sizing: border-box;
 }
 
+#flag, #logo {
+  max-width: 45%; /* ⚡ permet de réduire la taille sur mobile pour éviter chevauchement */
+  height: auto;
+}
+
 #flag {
-  height: 28px;
-  width: auto;
-  cursor: pointer;
   border-radius: 4px;
+  cursor: pointer;
   transition: transform 0.2s;
 }
 
@@ -36,8 +39,6 @@ body{
 }
 
 #logo {
-  height: 40px;   /* fixe la hauteur */
-  width: auto;
   object-fit: contain;
 }
 /* CONTENU */
