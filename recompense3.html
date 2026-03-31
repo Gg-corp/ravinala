@@ -15,14 +15,15 @@ body{
 
 /* HEADER */
 /* HEADER FLEX RESPONSIVE */
+/* HEADER */
 #header {
   width: 100%;
   display: flex;
-  justify-content: center; /* centre horizontalement */
+  justify-content: center; /* logo centré */
   align-items: center;     /* centre verticalement */
   padding: 10px 15px;
   box-sizing: border-box;
-  position: relative;      /* pour positionner le drapeau si besoin */
+  position: relative;      /* pour positionner le drapeau */
 }
 
 /* Logo centré */
@@ -33,12 +34,12 @@ body{
   z-index: 1;
 }
 
-/* Drapeau en haut à gauche */
+/* Drapeau à droite */
 #flag {
   height: auto;
   max-height: 30px;
   position: absolute;
-  left: 15px;   /* marge depuis le bord gauche */
+  right: 15px;   /* marge depuis le bord droit */
   top: 50%;
   transform: translateY(-50%);
 }
