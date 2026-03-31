@@ -16,34 +16,20 @@ body{
 /* HEADER */
 /* HEADER FLEX RESPONSIVE */
 #header {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 15px;
-  box-sizing: border-box;
+  width:100%;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  padding:10px 15px;
+  box-sizing:border-box;
 }
 
-/* Drapeau et logo */
-#flag, #logo {
-  height: auto;
-  max-height: 40px;   /* réduit la hauteur sur mobile */
-  max-width: 45%;     /* prend au maximum 45% de l'écran chacun */
-  object-fit: contain;
+#logo {
+  max-height:40px;
+  width:auto;
+  object-fit:contain;
 }
 
-/* Optionnel : effet hover sur le drapeau */
-#flag:hover {
-  transform: scale(1.1);
-}
-
-/* MEDIA QUERY pour très petits écrans */
-@media (max-width: 400px) {
-  #flag, #logo {
-    max-height: 30px;  /* encore plus petit si l'écran est très petit */
-    max-width: 40%;
-  }
-}
 /* CONTENU */
 .container{
   display:flex;
