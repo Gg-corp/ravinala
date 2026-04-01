@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+ <!DOCTYPE html> 
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -16,28 +16,22 @@ body{
 /* HEADER */
 /* HEADER FLEX RESPONSIVE */
 /* HEADER */
+/* HEADER */
 #header { 
   width: 100%; 
-         display: flex;
-         justify-content: center; /* centre horizontalement */ 
-  align-items: center; /* centre verticalement */ 
+  display: flex;
+  justify-content: space-between; /* 🔥 gauche / droite */
+  align-items: center; 
   padding: 10px 15px; 
   box-sizing: border-box; 
-  position: relative; /* pour positionner le drapeau si besoin */ } 
-  /* Logo centré */ 
-  #logo { 
-    max-height: 40px; 
-         width: auto; 
-         object-fit: contain; 
-    z-index: 1; } /* Drapeau en haut à gauche */ 
-  #flag { 
-    height: auto; 
-    max-height: 30px; 
-    align-items: left;
-    position: absolute; 
-    left: 15px; /* marge depuis le bord gauche */ 
-  top: 10%; 
-    transform: translateY(-1%); }
+}
+
+/* Drapeau à gauche */
+#flag { 
+  max-height: 30px; 
+  width: auto;
+}
+
 
 /* CONTENU */
 .container{
