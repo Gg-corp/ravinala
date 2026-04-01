@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -7,103 +7,115 @@
 
 <style>
 body{
-    margin:0;
-    padding:0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(#dff5e1,#e6f2ff);
+  margin:0;
+  padding:0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(#dff5e1,#e6f2ff);
 }
 
 /* HEADER */
-#header {
-    width: 100%;
-    display: flex;
-    justify-content: center; /* centre le logo */
-    align-items: center;
-    padding: 10px 15px;
-    position: relative; /* pour placer le drapeau */
-}
-
-/* Logo parfaitement centré */
-#logo {
-    max-height: 40px;
-    width: auto;
-    object-fit: contain;
-}
-
-/* Drapeau à gauche */
-#flag {
-    max-height: 30px;
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%); /* centré verticalement par rapport à la barre */
-}
+/* HEADER FLEX RESPONSIVE */
+/* HEADER */
+#header { 
+  width: 100%; 
+         display: flex;
+         justify-content: center; /* centre horizontalement */ 
+  align-items: center; /* centre verticalement */ 
+  padding: 10px 15px; 
+  box-sizing: border-box; 
+  position: relative; /* pour positionner le drapeau si besoin */ } 
+  /* Logo centré */ 
+  #logo { 
+    max-height: 40px; 
+         width: auto; 
+         object-fit: contain; 
+    z-index: 1; } /* Drapeau en haut à gauche */ 
+  #flag { 
+    height: auto; 
+    max-height: 30px; 
+    align-items: left;
+    position: absolute; 
+    left: 15px; /* marge depuis le bord gauche */ 
+  top: 10%; 
+    transform: translateY(-1%); }
 
 /* CONTENU */
 .container{
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
-    min-height:calc(100vh - 60px);
-    padding:20px 15px 0;
-    box-sizing:border-box;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start; /* 🔥 au lieu de center */
+  min-height:calc(100vh - 60px);
+  padding:20px 15px 0; /* un peu d'espace en haut */
+  box-sizing:border-box;
 }
 
-/* CARTE */
+/* CARTE STYLE JEU */
 .card{
-    width:100%;
-    max-width:400px;
-    background: rgba(255,255,255,0.85);
-    border-radius:16px;
-    padding:20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    backdrop-filter: blur(6px);
-    text-align:center;
-    animation: fadeIn 0.6s ease;
+  width:100%;
+  max-width:400px;
+  background: rgba(255,255,255,0.85);
+  border-radius:16px;
+  padding:20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  backdrop-filter: blur(6px);
+  text-align:center;
 }
 
-/* TITRES + TEXTE */
+/* TITRE */
 h1{
-    color:#2e7d32;
-    font-size:6vw;
-    margin-bottom:10px;
+  color:#2e7d32;
+  font-size:6vw;
+  margin-bottom:10px;
 }
 
+/* TEXTE */
 p{
-    font-size:4vw;
-    color:#555;
-    margin:10px 0;
+  font-size:4vw;
+  color:#555;
+  margin:10px 0;
 }
 
 /* IMAGE */
 img{
-    width:80%;
-    max-width:250px;
-    border-radius:12px;
-    margin:15px auto;
-    display:block;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  width:80%;
+  max-width:250px;
+  border-radius:12px;
+  margin:15px auto;
+  display:block;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
+/* QR highlight */
 .qr-text{
-    font-weight:bold;
-    color:#2e7d32;
+  font-weight:bold;
+  color:#2e7d32;
+}
+
+/* petite animation */
+.card{
+  animation: fadeIn 0.6s ease;
 }
 
 @keyframes fadeIn{
-    from{opacity:0; transform:translateY(10px);}
-    to{opacity:1; transform:translateY(0);}
+  from{opacity:0; transform:translateY(10px);}
+  to{opacity:1; transform:translateY(0);}
 }
+
 </style>
 </head>
 
 <body>
 
 <!-- HEADER -->
+<!-- HEADER -->
+<!-- HEADER -->
 <div id="header">
-  <a href="https://ravinalajeu.paulgray2117.workers.dev/award2" id="lang-switch">
-   <img src="https://flagcdn.com/gb.svg" alt="English" id="flag">
+  <!-- Logo gauche -->
+  <a href="https://ravinalajeu.paulgray2117.workers.dev/award3" id="lang-switch">
+    <img src="https://flagcdn.com/gb.svg" alt="English" id="flag">
   </a>
+
+  <!-- Logo droite -->
   <img id="logo" src="https://www.ravinala-airports.aero/wp-content/uploads/2026/03/Logo-transparent.png">
 </div>
 
@@ -111,11 +123,11 @@ img{
 
   <div class="card">
 
-    <h1>🎁 Indice 3</h1>
+    <h1>🎁 Indice 4</h1>
 
-    <p>Résoudre cette petite devinette</p>
+    <p>Trouvez ce lieu dans le hall</p>
 
-    <img src="3-1.png">
+    <img src="4-1.png">
 
     <p class="qr-text">📱 Scannez le QR code présent sur le lieu pour l’étape suivante</p>
 
