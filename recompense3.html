@@ -30,14 +30,20 @@ body{
          width: auto; 
          object-fit: contain; 
     z-index: 1; } /* Drapeau en haut à gauche */ 
-  #flag { 
-    height: auto; 
-    max-height: 30px; 
-    align-items: left;
-    position: absolute; 
-    left: 15px; /* marge depuis le bord gauche */ 
-  top: 10%; 
-    transform: translateY(-1%); }
+  #flag {
+  height:28px;
+  width:auto;
+  cursor:pointer;
+  transition: transform 0.2s;
+}
+
+#flag:hover {
+  transform: scale(1.1);
+}
+    #logo {
+      height:40px;
+      opacity:0.9;
+    }
 
 /* CONTENU */
 .container{
