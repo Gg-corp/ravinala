@@ -18,33 +18,36 @@ body{
 /* HEADER */
 #header { 
   width: 100%; 
-         display: flex;
-         justify-content: center; /* centre horizontalement */ 
-  align-items: center; /* centre verticalement */ 
+  display: flex;
+  justify-content: center; /* vrai centrage */
+  align-items: center;
   padding: 10px 15px; 
   box-sizing: border-box; 
-  position: relative; /* pour positionner le drapeau si besoin */ } 
-  /* Logo centré */ 
-  #logo { 
-    max-height: 40px; 
-         width: auto; 
-         object-fit: contain; 
-    z-index: 1; } /* Drapeau en haut à gauche */ 
-  #flag {
-  height:28px;
-  width:auto;
-  cursor:pointer;
+  position: relative;
+}
+
+/* Logo parfaitement centré */
+#logo { 
+  height: 40px;
+  width: auto; 
+  object-fit: contain; 
+}
+
+/* Drapeau positionné à gauche sans influencer le centre */
+#flag {
+  position: absolute;   /* 🔥 IMPORTANT */
+  left: 15px;           /* distance du bord */
+  top: 50%;
+  transform: translateY(-50%);
+  height: 28px;
+  width: auto;
+  cursor: pointer;
   transition: transform 0.2s;
 }
 
 #flag:hover {
-  transform: scale(1.1);
+  transform: translateY(-50%) scale(1.1);
 }
-    #logo {
-      height:40px;
-      opacity:0.9;
-    }
-
 /* CONTENU */
 .container{
   display:flex;
