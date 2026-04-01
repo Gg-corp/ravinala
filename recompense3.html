@@ -14,32 +14,30 @@ body{
 }
 
 /* HEADER */
-/* HEADER FLEX RESPONSIVE */
-/* HEADER */
-/* HEADER */
-/* HEADER */
-#header { 
-  width: 100%; 
-  display: flex;
-  justify-content: space-between; /* 🔥 gauche / droite */
-  align-items: center; 
-  padding: 10px 15px; 
-  box-sizing: border-box; 
+#header {
+  width:100%;
+  display:flex;
+  justify-content:space-between; /* 🔥 EXACT comme pendu */
+  align-items:center;
+  padding:10px 15px;
+  box-sizing:border-box;
 }
 
-/* Drapeau à gauche */
-#flag { 
-  max-height: 30px; 
-  width: auto;
+#flag {
+  height:28px;
+  width:auto;
+  cursor:pointer;
+  transition: transform 0.2s;
 }
 
-/* Logo à droite */
-#logo { 
-  max-height: 40px; 
-  width: auto; 
-  object-fit: contain; 
-  z-index: 1; }
+#flag:hover {
+  transform: scale(1.1);
+}
 
+#logo {
+  height:40px;
+  opacity:0.9;
+}
 
 /* CONTENU */
 .container{
@@ -108,16 +106,11 @@ img{
 
 <body>
 
-<!-- HEADER -->
-<!-- HEADER -->
-<!-- HEADER -->
 <div id="header">
-  <!-- Gauche -->
   <a href="https://ravinalajeu.paulgray2117.workers.dev/award3">
     <img src="https://flagcdn.com/gb.svg" alt="English" id="flag">
   </a>
 
-  <!-- Droite -->
   <img id="logo" src="https://www.ravinala-airports.aero/wp-content/uploads/2026/03/Logo-transparent.png">
 </div>
 
