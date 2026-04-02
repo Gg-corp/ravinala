@@ -1,0 +1,421 @@
+<!DOCTYPE html>  
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeu du Pendu - Ravinala Airport</title>
+
+  <style>
+    body {
+      margin:0;
+      padding:0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(#dff5e1,#e6f2ff);
+    }
+
+    /* HEADER AVEC LOGO */
+    #header {
+  width:100%;
+  display:flex;
+  justify-content:space-between; /* espace entre drapeau et logo */
+  align-items:center;
+  padding:10px 15px;
+  box-sizing:border-box;
+}
+
+#flag {
+  height:28px;
+  width:auto;
+  cursor:pointer;
+  transition: transform 0.2s;
+}
+
+#flag:hover {
+  transform: scale(1.1);
+}
+    #logo {
+      height:40px;
+      opacity:0.9;
+    }
+
+    #pendu-game {
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+      align-items:center;
+      width:100%;
+      height:calc(100vh - 60px);
+      padding:10px;
+      box-sizing:border-box;
+    }
+
+    /* CARTE PRINCIPALE */
+    #game-card {
+      width:100%;
+      max-width:400px;
+      background: rgba(255,255,255,0.85);
+      border-radius:16px;
+      padding:15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      backdrop-filter: blur(6px);
+      text-align:center;
+    }
+
+    h2 {
+      font-size:5vw;
+      margin:5px 0;
+      color:#2e7d32;
+    }
+
+    #hint {
+      font-size:3.5vw;
+      text-align:center;
+      color:#555;
+    }
+
+    #word {
+      font-size:6vw;
+      letter-spacing:2vw;
+      margin:10px 0;
+      background: rgba(200,255,200,0.4);
+      padding:8px;
+      border-radius:8px;
+    }
+
+    p {
+      font-size:3.5vw;
+      margin:5px 0;
+    }
+#plane-img {
+  width:50vw;
+  max-width:200px;
+  margin:10px auto;   /* centre horizontalement */
+  display:block;      /* IMPORTANT */
+}
+
+    #keyboard {
+      width:100%;
+      margin-top:10px;
+    }
+
+    #keyboard div {
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    #keyboard button {
+      margin:2px;
+      padding:10px;
+      font-size:4vw;
+      border-radius:6px;
+      border:1px solid #2e7d32;
+      background:#f1fff1;
+      flex:1 0 8%;
+      max-width:40px;
+      transition:0.2s;
+    }
+
+    #keyboard button:hover {
+      background:#c8e6c9;
+    }
+
+   #restart {
+  display:block;      /* IMPORTANT */
+  margin:10px auto;   /* centre horizontalement */
+  padding:10px 15px;
+  font-size:4vw;
+  background:#2e7d32;
+  color:white;
+  border:none;
+  border-radius:8px;
+}
+
+    #message {
+      font-size:4vw;
+      text-align:center;
+    }
+
+    #win-link {
+      font-size:4vw;
+      text-align:center;
+      color:#2e7d32;
+      font-weight:bold;
+      text-decoration:none;
+    }
+    #wrong-letters-box {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:5px;
+  margin-bottom:8px;
+}
+
+.wrong-letter {
+  background:#ffebee;
+  color:#c62828;
+  padding:5px 8px;
+  border-radius:6px;
+  font-weight:bold;
+}
+
+#lives-box {
+  display:flex;
+  justify-content:center;
+  gap:5px;
+  margin-bottom:10px;
+}
+
+.life {
+  font-size:5vw;
+}
+#hint-box {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background: linear-gradient(135deg, #e8f5e9, #ffffff);
+  border-left:4px solid #2e7d32;
+  padding:10px;
+  margin:10px 0;
+  border-radius:10px;
+  font-size:3.8vw;
+  color:#2e7d32;
+  font-weight:500;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.hint-icon {
+  font-size:5vw;
+}
+#hint {
+  transition: opacity 0.4s ease;
+}
+
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER AVEC LOGO -->
+<div id="header">
+  <a href="https://ravinalajeu.paulgray2117.workers.dev/ravinalaeng" id="lang-switch">
+   <img src="https://flagcdn.com/gb.svg" alt="English" id="flag">
+  </a>
+  <img id="logo" src="https://www.ravinala-airports.aero/wp-content/uploads/2026/03/Logo-transparent.png">
+</div>
+
+<div id="pendu-game">
+
+  <div id="game-card">
+
+    <h2>✈️ Jeu du Pendu</h2>
+
+    <div id="hint-box">
+  <span class="hint-icon">💡</span>
+  <span id="hint"></span>
+</div>
+
+    <p id="word"></p>
+<p>❌ Lettres incorrectes :</p>
+<div id="wrong-letters-box"></div>
+
+<p>❤️ Vies restantes :</p>
+<div id="lives-box"></div>
+
+    <img id="plane-img" src="https://www.ravinala-airports.aero/wp-content/uploads/2026/03/1.jpg">
+
+    <button id="restart">Recommencer</button>
+
+    <div id="keyboard"></div>
+
+    <p id="message"></p>
+
+    <a id="win-link" href="https://ravinalajeu.paulgray2117.workers.dev/recompense.html" target="_blank">
+      🎁 Le parcours continue ! Cliquez ici
+    </a>
+
+  </div>
+
+</div>
+
+<script>
+(function() {
+  const words = [
+    {word:"avion", hint:"Le transporteur principal des passagers."},
+    {word:"lapin", hint:"Animal de Pâques 🐰"},
+    {word:"aeroport", hint:"Lieu de départ et d’arrivée des avions."},
+    {word:"piste", hint:"Où les avions décollent et atterrissent."},
+    {word:"paques", hint:"Fête avec des œufs en chocolat 🥚"},
+    {word:"reservation", hint:"Action de garder une place à l’avance."},
+    {word:"passeport", hint:"Document pour voyager à l’étranger."},
+    {word:"pilote", hint:"Personne qui conduit l’avion."}
+  ];
+
+  const planeStages = [
+    "https://www.ravinala-airports.aero/wp-content/uploads/2026/03/1.jpg",
+    "https://www.ravinala-airports.aero/wp-content/uploads/2026/03/2.jpg",
+    "https://www.ravinala-airports.aero/wp-content/uploads/2026/03/3.jpg",
+    "https://www.ravinala-airports.aero/wp-content/uploads/2026/03/4.jpg",
+    "https://www.ravinala-airports.aero/wp-content/uploads/2026/03/5.jpg",
+    "https://www.ravinala-airports.aero/wp-content/uploads/2026/03/6.jpg",
+    "https://www.ravinala-airports.aero/wp-content/uploads/2026/03/7.jpg",
+    
+  ];
+
+  let selectedWordObj = {};
+  let correctLetters = [];
+  let wrongLetters = [];
+  let lives = 6;
+  let gameOver = false;
+
+  const wordEl = document.getElementById("word");
+  const wrongBox = document.getElementById("wrong-letters-box");
+const livesBox = document.getElementById("lives-box");
+  const messageEl = document.getElementById("message");
+  const inputEl = document.getElementById("letter-input");
+  const restartBtn = document.getElementById("restart");
+  const hintEl = document.getElementById("hint");
+  const winLink = document.getElementById("win-link");
+  const planeImg = document.getElementById("plane-img");
+  const keyboardDiv = document.getElementById("keyboard");
+
+  const azertyKeys = [
+    ["a","z","e","r","t","y","u","i","o","p"],
+    ["q","s","d","f","g","h","j","k","l","m"],
+    ["w","x","c","v","b","n"]
+  ];
+
+  let keyboardButtons = [];
+
+  function createKeyboard(){
+    keyboardDiv.innerHTML = "";
+    keyboardButtons = [];
+    azertyKeys.forEach(row=>{
+      const rowDiv = document.createElement("div");
+      rowDiv.style.margin="2px 0";
+      row.forEach(letter=>{
+        const btn = document.createElement("button");
+        btn.textContent = letter.toUpperCase();
+        btn.style.margin="1px";
+        btn.style.padding="6px 8px";
+        btn.style.fontSize="14px";
+        btn.style.borderRadius="4px";
+        btn.style.border="1px solid #003366";
+        btn.style.background="#f0f8ff";
+        btn.style.cursor="pointer";
+        btn.addEventListener("click", ()=>{
+          handleLetter(letter);
+          btn.disabled = true;
+          btn.style.opacity = "0.4";
+          btn.style.cursor = "not-allowed";
+        });
+        rowDiv.appendChild(btn);
+        keyboardButtons.push(btn);
+      });
+      keyboardDiv.appendChild(rowDiv);
+    });
+  }
+function disableKeyboard(){
+  keyboardButtons.forEach(btn=>{
+    btn.disabled = true;
+    btn.style.opacity = "0.4";
+    btn.style.cursor = "not-allowed";
+  });
+}
+  function handleLetter(letter){
+    if(gameOver) return;
+    if(selectedWordObj.word.includes(letter)){
+      if(!correctLetters.includes(letter)) correctLetters.push(letter);
+    }else{
+      if(!wrongLetters.includes(letter)){
+        wrongLetters.push(letter);
+        lives--;
+      }
+    }
+    updateDisplay();
+    checkGame();
+  }
+
+  function startGame(){
+    selectedWordObj = words[Math.floor(Math.random()*words.length)];
+    correctLetters = [];
+    wrongLetters = [];
+    lives = 6;
+    gameOver = false;
+    messageEl.textContent="";
+    winLink.style.display="none";
+    hintEl.textContent = selectedWordObj.hint;
+hintEl.style.opacity = "0";
+setTimeout(() => {
+  hintEl.style.opacity = "1";
+}, 100);
+
+    // Réinitialiser le clavier
+    keyboardButtons.forEach(btn=>{
+      btn.disabled = false;
+      btn.style.opacity = "1";
+      btn.style.cursor = "pointer";
+    });
+
+    updateDisplay();
+  }
+
+  function updateDisplay(){
+  // mot
+  wordEl.textContent = selectedWordObj.word
+    .split("")
+    .map(letter => correctLetters.includes(letter) ? letter : "_")
+    .join(" ");
+
+  // lettres incorrectes stylées
+  wrongBox.innerHTML = "";
+  wrongLetters.forEach(l=>{
+    const span = document.createElement("span");
+    span.textContent = l.toUpperCase();
+    span.className = "wrong-letter";
+    wrongBox.appendChild(span);
+  });
+
+  // vies avec coeurs
+  
+  livesBox.innerHTML = "";
+  for(let i=0; i<lives; i++){
+    const heart = document.createElement("span");
+    heart.textContent = "🥚";
+    heart.className = "life";
+    livesBox.appendChild(heart);
+  }
+
+  // image avion
+  let stage = wrongLetters.length;
+  if(stage >= planeStages.length) stage = planeStages.length - 1;
+  planeImg.src = planeStages[stage];
+}
+
+function checkGame(){
+  if(!wordEl.textContent.includes("_")){
+    messageEl.textContent="🎉 Bravo ! Vous avez trouvé le mot !";
+    winLink.style.display="inline-block";
+    gameOver = true;
+    disableKeyboard(); // 🔒 bloque clavier
+  }
+
+  if(lives <= 0){
+    messageEl.textContent="💥 Perdu ! Le mot était : "+selectedWordObj.word;
+    lives = 0;
+    updateDisplay();
+    gameOver = true;
+    disableKeyboard(); // 🔒 bloque clavier
+  }
+}
+
+  restartBtn.addEventListener("click", startGame);
+
+
+  createKeyboard();
+  startGame();
+})();
+</script>
+</body>
+</html>
