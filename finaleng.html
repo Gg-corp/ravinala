@@ -1,0 +1,120 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>VIP Reward</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  padding:0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(#dff5e1,#e6f2ff);
+}
+
+/* HEADER */
+#header {
+  width:100%;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  padding:10px 15px;
+  box-sizing:border-box;
+}
+
+#logo {
+  max-height:40px;
+  width:auto;
+  object-fit:contain;
+}
+/* CONTENT */
+.container{
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:calc(100vh - 60px);
+  padding:20px 15px 0;
+  box-sizing:border-box;
+}
+
+/* GAME CARD STYLE */
+.card{
+  width:100%;
+  max-width:400px;
+  background: rgba(255,255,255,0.85);
+  border-radius:16px;
+  padding:20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  backdrop-filter: blur(6px);
+  text-align:center;
+}
+
+/* TITLE */
+h1{
+  color:#2e7d32;
+  font-size:6vw;
+  margin-bottom:10px;
+}
+
+/* TEXT */
+p{
+  font-size:4vw;
+  color:#555;
+  margin:10px 0;
+}
+
+/* IMAGE */
+img{
+  width:80%;
+  max-width:250px;
+  border-radius:12px;
+  margin:15px auto;
+  display:block;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* QR highlight */
+.qr-text{
+  font-weight:bold;
+  color:#2e7d32;
+}
+
+/* small animation */
+.card{
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(10px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header">
+  <img id="logo" src="https://www.ravinala-airports.aero/wp-content/uploads/2026/03/Logo-transparent.png">
+</div>
+
+<div class="container">
+
+  <div class="card">
+
+    <h1>Congratulations! 🎉</h1>
+
+    <p>You have successfully completed all the stages of the game.</p>
+
+    <img src="https://www.ravinala-airports.aero/wp-content/uploads/2026/04/CONCOURS-4.jpg">
+
+    <p class="qr-text">Present this to claim your reward 🎁</p>
+
+  </div>
+
+</div>
+
+</body>
+</html>
